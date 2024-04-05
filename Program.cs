@@ -4,7 +4,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        PrintStatusFromBMI(CalculateBMI(75, 1.75f));
+        Console.Write("Enter your weight in kilograms: ");
+        double weight = double.Parse(Console.ReadLine());
+
+        Console.Write("Enter your height in meters: ");
+        double height = double.Parse(Console.ReadLine());
+
+        double bmi = CalculateBMI(weight, height);
+        Console.WriteLine($"Your BMI (IMC) is: {bmi}");
+        PrintStatusFromBMI(bmi);
+
         Console.ReadLine();
     }
 
@@ -15,7 +24,7 @@ class Program
         return bmi;
     }
 
-    // Returns the status of a BMI.
+    // Prints the status of a BMI.
     static void PrintStatusFromBMI(double bmi)
     {
         if (bmi < 18.5) Console.WriteLine("You are underweight.");
